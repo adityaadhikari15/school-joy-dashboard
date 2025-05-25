@@ -1,0 +1,64 @@
+<div class="dashboard-graduation-table">
+  <div class="my-4">
+    <ul class="nav nav-tabs mb-3">
+      <li class="nav-item">
+        <a class="nav-link active">Badges</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link">Students</a>
+      </li>
+    </ul>
+
+    <div class="input-group mb-4">
+      <span class="input-group-text">
+        <img src="assets/search.png">
+      </span>
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Search badges"
+        [(ngModel)]="searchTerm"
+      >
+    </div>
+
+    <div class="table-responsive">
+      <table class="table align-middle">
+        <thead>
+          <tr>
+            <th>Badge</th>
+            <th>Total Goals</th>
+            <th>Completed</th>
+            <th>In Progress</th>
+            <th>Not Started</th>
+            <th>Completion Rate</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (badge of filteredBadges; track $index) {
+            <tr>
+              <td class="d-flex align-items-center gap-2">
+                <img [src]="badge.image" alt="Badge" width="40" class="rounded">
+                {{ badge.title }}
+              </td>
+              <td>{{ badge.totalGoals }}</td>
+              <td>{{ badge.completed }}</td>
+              <td>{{ badge.inProgress }}</td>
+              <td>{{ badge.notStarted }}</td>
+              <td>
+                <div class="d-flex align-items-center">
+                  <div class="progress w-100" style="height: 10px;">
+                    <div
+                      class="progress-bar bg-primary"
+                      [style.width.%]="badge.completionRate"
+                    ></div>
+                  </div>
+                  <span class="ms-2">{{ badge.completionRate }}%</span>
+                </div>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

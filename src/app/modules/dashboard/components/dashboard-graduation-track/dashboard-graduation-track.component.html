@@ -1,0 +1,59 @@
+<div class="dashboard-graduation-track">
+  <h6 class="fs-2">Graduation Track</h6>
+
+  <div class="d-flex gap-2 justify-content-between">
+
+    <div class="col-6">
+      <div class="mt-4 text-center">
+        <h5 class="mb-4 text-start fs-6">Track Completion</h5>
+
+        <div class="d-flex gap-5">
+          <div class="position-relative">
+            <canvas
+              baseChart
+              [type]="'doughnut'"
+              [data]="doughnutChartData"
+              [options]="doughnutChartOptions"
+              style="width: 300px; height: 300px;"
+            ></canvas>
+
+            <div
+              class="position-absolute top-50 start-50 translate-middle text-center"
+              style="pointer-events: none;"
+            >
+              <h2 class="m-0">{{ totalStudents }}</h2>
+              <small>Total Students</small>
+            </div>
+          </div>
+
+          <div class="text-start vertically-center">
+            <div
+              class="d-flex align-items-center mb-2 gap-4"
+              *ngFor="let label of doughnutChartData.labels; let i = index"
+            >
+              <div
+                class="me-2"
+                [style.background]="doughnutChartData.datasets[0].backgroundColor[i]"
+                style="width: 16px; height: 16px; border-radius: 3px;"
+              ></div>
+              <div class="flex-grow-1">{{ label }}</div>
+              <div class="fw-bold">{{ doughnutChartData.datasets[0].data[i] }} <img src="assets/down-arrow.png"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-6 d-flex flex-wrap gap-2 h-100 vertically-center">
+      @for (item of graduationTrackData; track $index) {
+        <div class="card border">
+          <div class="flex-column p-3">
+            <h6 class="fs-3">{{ item.value }}</h6>
+            <div class="fs-6 text-muted">{{ item.title }}</div>
+          </div>
+        </div>
+      }
+    </div>
+
+  </div>
+</div>
