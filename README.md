@@ -10,12 +10,12 @@ After cloning or downloading the project, run the following command to install a
 npm install
 ```
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.13.
+## How to start
 
 To start a local development server, run:
 
 ```bash
-ng serve
+npm start
 ```
 
 ## Preview
