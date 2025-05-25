@@ -18,6 +18,14 @@ To start a local development server, run:
 npm start
 ```
 
+## After starting the project
+
+Once the project is started go to:
+
+```bash
+http://localhost:4200/
+```
+
 ## Preview
 
 ![Dashboard Screenshot](src/assets/dashboard-screenshot.png)
